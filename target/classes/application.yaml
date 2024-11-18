@@ -4,3 +4,10 @@ camunda.bpm:
     password: 1
   filter:
     create: All tasks
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
