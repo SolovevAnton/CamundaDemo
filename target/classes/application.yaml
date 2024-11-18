@@ -1,0 +1,6 @@
+camunda.bpm:
+  admin-user:
+    id: MxAdmin
+    password: 1
+  filter:
+    create: All tasks
