@@ -11,6 +11,7 @@ public class HelloDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
+        Thread.sleep(5000);
         log.info("Hello World: {}", delegateExecution);
     }
 }
