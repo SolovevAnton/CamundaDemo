@@ -15,12 +15,13 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 @Slf4j
 public class RmqProducerDelegate implements JavaDelegate {
-    private final RabbitTemplate rabbitTemplate;
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
         Person person = (Person) delegateExecution.getVariable(VariableNames.PERSON);
-        rabbitTemplate.convertAndSend(RabbitConfig.QUEUE_NAME,person);
+        rabbitTemplate.convertAndSend(RabbitConfig.QUEUE_NAME, person);
         log.info("Send person {}", person);
     }
+
+    private final RabbitTemplate rabbitTemplate;
 }

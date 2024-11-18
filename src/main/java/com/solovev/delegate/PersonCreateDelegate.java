@@ -13,10 +13,8 @@ import static com.solovev.common.VariableNames.PERSON;
 @Component("PersonCreateDelegate")
 @Slf4j
 public class PersonCreateDelegate implements JavaDelegate {
-    public static final int MAX_AGE = 36;
-    private static int personCounter;
 
-    private final Random random = new Random();
+    public static final int MAX_AGE = 36;
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
@@ -31,4 +29,8 @@ public class PersonCreateDelegate implements JavaDelegate {
         person.setAge(random.nextInt(MAX_AGE));
         return person;
     }
+
+    private static int personCounter;
+
+    private final Random random = new Random();
 }

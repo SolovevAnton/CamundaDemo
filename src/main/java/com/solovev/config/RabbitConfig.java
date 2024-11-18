@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableRabbit
 public class RabbitConfig {
+
     public static final String QUEUE_NAME = "personQueue";
 
     @Bean
@@ -17,7 +18,7 @@ public class RabbitConfig {
         return new Queue(QUEUE_NAME, true); // true - очередь персистентная
     }
 
-   @Bean
+    @Bean
     public MessageConverter messageConverter() {
         return new Jackson2JsonMessageConverter();
     }

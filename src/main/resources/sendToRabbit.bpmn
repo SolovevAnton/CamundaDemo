@@ -11,14 +11,14 @@
       <bpmn:outgoing>Flow_05uywj1</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="Flow_05uywj1" sourceRef="Activity_0ie43qz" targetRef="Activity_05rlzri" />
-    <bpmn:serviceTask id="Activity_05rlzri" name="send to RMQ" camunda:delegateExpression="${RmqProducerDelegate}">
-      <bpmn:incoming>Flow_05uywj1</bpmn:incoming>
-      <bpmn:outgoing>Flow_0n99okg</bpmn:outgoing>
-    </bpmn:serviceTask>
     <bpmn:endEvent id="Event_0pi86bt">
       <bpmn:incoming>Flow_0n99okg</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_0n99okg" sourceRef="Activity_05rlzri" targetRef="Event_0pi86bt" />
+    <bpmn:sendTask id="Activity_05rlzri" name="send to RMQ" camunda:delegateExpression="${RmqProducerDelegate}">
+      <bpmn:incoming>Flow_05uywj1</bpmn:incoming>
+      <bpmn:outgoing>Flow_0n99okg</bpmn:outgoing>
+    </bpmn:sendTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="rabbitProducer">
@@ -28,12 +28,11 @@
       <bpmndi:BPMNShape id="Activity_1se2ywq_di" bpmnElement="Activity_0ie43qz">
         <dc:Bounds x="300" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0599pbt_di" bpmnElement="Activity_05rlzri">
-        <dc:Bounds x="480" y="80" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0pi86bt_di" bpmnElement="Event_0pi86bt">
         <dc:Bounds x="642" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0tzveez_di" bpmnElement="Activity_05rlzri">
+        <dc:Bounds x="480" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_03pmtm7_di" bpmnElement="Flow_03pmtm7">
         <di:waypoint x="218" y="120" />
